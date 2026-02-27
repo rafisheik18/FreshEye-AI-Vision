@@ -64,13 +64,13 @@ python app.py
 ## 📸 Demo
 
 ### 🏠 Home Page
-<img src="assets/home.png" width="800">
+![Home](assets/home.png)
 
 ### 📸 Preview Page
-<img src="assets/preview.png" width="800">
+![Preview](assets/preview.png)
 
 ### 📊 Prediction Result
-<img src="assets/output.png" width="800">
+![Output](assets/output.png)
 ---
 
 ## 👨‍💻 Author
