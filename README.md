@@ -63,8 +63,6 @@ python app.py
 
 ## 📸 Demo
 
-## 📸 Demo
-
 ### 🏠 Home Page
 ![Home](assets/home.png)
 
