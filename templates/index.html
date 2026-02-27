@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FreshEye AI Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #edf7f1, #d7f2df);
+            text-align: center;
+        }
+
+        h1 {
+            margin: 35px 0 4px 0;
+            color: #1b5e20;
+            font-size: 32px;
+            letter-spacing: 0.5px;
+            font-weight: 400;
+        }
+
+        .underline {
+            width: 300px;
+            height: 4px;
+            background: #4CAF50;
+            margin: 5px auto 0;
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 950px;
+            margin: 50px auto;
+            display: flex;
+            gap: 35px;
+        }
+        .logo {
+    margin-top: 35px;
+    font-size: 80px;   /* Matches eye visually */
+    font-weight: bold;
+    color: #1b5e20;
+}
+        /* 👁 Real Eye */
+.eye {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    vertical-align: middle;
+
+    animation: blink 3.5s infinite ease-in-out;
+    transform-origin: center;
+}
+
+/* Smooth Natural Blink */
+@keyframes blink {
+    0% { transform: scaleY(1); }
+    4% { transform: scaleY(0.05); }
+    8% { transform: scaleY(1); }
+    100% { transform: scaleY(1); }
+}
+
+        .box {
+            flex: 1;
+            height: 340px;
+            background: white;
+            border-radius: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 28px 60px rgba(76,175,80,0.25);
+        }
+
+        /* Soft futuristic glow */
+        .box::before {
+            content: "";
+            position: absolute;
+            width: 180%;
+            height: 180%;
+            background: radial-gradient(circle, rgba(76,175,80,0.08), transparent 60%);
+            top: -40%;
+            left: -40%;
+            transition: 0.4s;
+        }
+
+        .box:hover::before {
+            transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 18px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2e7d32;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-top: 6px;
+        }
+
+        /* Floating micro animation */
+        .icon {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 class="logo">
+    Fresh<img src="/static/eye.png" class="eye">
+</h1>
+<div class="underline"></div>
+
+<div class="container">
+
+    <div class="box" onclick="window.location.href='/camera'">
+        <div class="icon">📸</div>
+        <div class="title">Capture Using Camera</div>
+        <div class="subtitle">Real-Time Vision Scan</div>
+    </div>
+
+    <div class="box" onclick="document.getElementById('fileInput').click()">
+        <div class="icon">📁</div>
+        <div class="title">Upload From Device</div>
+        <div class="subtitle">Analyze Stored Image</div>
+    </div>
+
+</div>
+
+<form id="uploadForm" action="/preview" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput" hidden accept="image/*"
+           onchange="document.getElementById('uploadForm').submit()">
+</form>
+
+</body>
+</html>
