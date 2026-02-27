@@ -61,18 +61,6 @@ python app.py
 
 ---
 
-## 📸 Demo
-
-### 🏠 Home Page
-![Home](assets/home.png)
-
-### 📸 Preview Page
-![Preview](assets/preview.png)
-
-### 📊 Prediction Result
-![Output](assets/output.png)
----
-
 ## 👨‍💻 Author
 
 Sheik Abdul Rafiqullah  
